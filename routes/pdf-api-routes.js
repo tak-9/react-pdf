@@ -22,7 +22,7 @@ module.exports = function (app) {
     }
 
     app.get("/api/pdf", function (req, res) {
-        console.log("POST /api/pdf called!");
+        console.log("GET /api/pdf called!");
         let inputFileName = fs.readFileSync(__dirname + "/input.html", 'utf8');
         
         let outputFileName;

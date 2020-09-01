@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
 
 function App() {
   const hostname = process.env.NODE_ENV === "production" ? "" : "http://localhost:3001";
