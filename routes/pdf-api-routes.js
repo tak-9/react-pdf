@@ -6,7 +6,16 @@ module.exports = function (app) {
 
     app.get("/api/hello", function (req, res) {
         console.log("GET /api/hello called!");
-        res.json({ msg: "hello!" });
+
+        let baseUrl;
+        if (process.env.NODE_ENV === "production") {
+            const app_name = process.env.HEROKU_APP_NAME;
+            baseUrl = "https://" + app_name + ".herokuapp.com";
+        } else { 
+            baseUrl = "https://localhost:3001"
+        }
+        
+        res.json({ url: baseUrl});
     });
 
     function htmlToPdf(inputFile, outputFile){
